@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.0.1",
     author="Daniel Hafner",  # add yourself here setuptools
     author_email="daniel-hafner1@gmx.de",
-    description="Package to interact with workpathapi API",
+    description="Package to interact with workpath API",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/dataatelier/workpath-python",
