@@ -1,1 +1,11 @@
+# ignore files from IDE Pycharm
 .idea/
+
+# ignore build directory
+build/
+
+# ignore eggs
+workpathapi.egg-info/
+
+# ignore chaches
+workpathapi/__pycache__/
