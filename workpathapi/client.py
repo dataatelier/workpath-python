@@ -1,4 +1,4 @@
-from .helpers import create_params
+from .helpers import create_params, list_to_dataframe
 
 import requests
 import os
@@ -18,7 +18,8 @@ class Client:
         self._base_url = self._base_url.format(company=company)
         self._headers['Authorization'] = 'Token {api_token}'.format(api_token=api_token)
 
-    def get_goals(self, start_date=None, end_date=None, team_id=None, query=None, page=1, max_results=None) -> list:
+    def get_goals(self, start_date=None, end_date=None, team_id=None, query=None, page=1, max_results=None,
+                  output_format='dict') -> list:
         """
         Gets and returns all goals from the api.
 
@@ -37,7 +38,10 @@ class Client:
         :param page: Number of first page.
                      Default: first possible page
         :param max_results: Limit of results. If None or larger than actual results all goals are returned.
-        :return: Returns all goals from the Workpath api in a list.
+        :param output_format: Return a dictionary or pandas.DataFrame.
+                              Possible values: 'dict' or 'json' -> dictionary
+                                               'DataFrame', 'pd.DataFrame', or 'pandas.DataFrame' -> pandas.DataFrame
+        :return: Returns all goals from the Workpath api in a list or pandas DataFrame.
         """
         endpoint = 'goals'
         url = '{base_url}/{endpoint}'.format(base_url=self._base_url, endpoint=endpoint)
@@ -52,7 +56,8 @@ class Client:
             total_pages = response.get('pagination').get('total_pages')
             params['page'] = params.get('page') + 1
         # return all goals or max_results goals
-        return goals[:max_results]
+        goals_as_dict = goals[:max_results]
+        return list_to_dataframe(list_to_transform=goals_as_dict, output_format=output_format)
 
     def get_goal(self, goal_id: int) -> dict:
         """
