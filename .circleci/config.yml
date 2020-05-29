@@ -6,3 +6,6 @@ jobs:
       - image: circleci/python:3.8.3
     steps:
         - checkout
+        - run:
+          name: Install package
+          command: pip install pandas
