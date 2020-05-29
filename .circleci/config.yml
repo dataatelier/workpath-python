@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 jobs:
   build:
@@ -7,5 +7,4 @@ jobs:
     steps:
         - checkout
         - run:
-          name: Install package
           command: pip install pandas
