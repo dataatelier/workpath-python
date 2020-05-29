@@ -9,3 +9,4 @@ jobs:
         - run: |
             pip install pandas
             pip install .
+        - run: python -m unittest
