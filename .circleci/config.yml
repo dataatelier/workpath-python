@@ -1,12 +1,29 @@
 version: 2.1
-
+workflows:
+  version: 2.1
+  test:
+    jobs:
+      - test-oldest
+      - test-latest
 jobs:
-  build:
+  test-oldest: &test-template
+    docker:
+      - image: circleci/python:2.7
+    working_directory: ~/workpath-python
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: pip install pandas
+      - run:
+          name: Install package
+          command: pip install .
+      - run:
+          name: Test
+          command: python -m unittest
+
+  test-latest:
+    <<: *test-template
     docker:
       - image: circleci/python:3.8.3
-    steps:
-        - checkout
-        - run: |
-            pip install pandas
-            pip install .
-        - run: python -m unittest
+
