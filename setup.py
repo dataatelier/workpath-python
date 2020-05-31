@@ -14,9 +14,13 @@ setuptools.setup(
     url="https://github.com/dataatelier/workpath-python",
     packages=setuptools.find_packages(),
     classifiers=[
-        "Programming Language :: Python :: 3.8.3",  # more will be added
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "License :: MIT License",
         "Operating System :: OS Independent"
     ],
-    python_requires=">=3.8.2"  # more to come
+    python_requires=">=2.7"  # more to come
 )
