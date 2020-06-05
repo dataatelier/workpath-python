@@ -5,8 +5,8 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="workpathapi",
-    version="0.0.1",
-    author="Daniel Hafner",  # add yourself here setuptools
+    version="1.0.0",
+    author="Daniel Hafner",
     author_email="daniel-hafner1@gmx.de",
     description="Package to interact with workpath API",
     long_description=long_description,
