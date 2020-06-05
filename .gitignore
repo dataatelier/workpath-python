@@ -9,3 +9,7 @@ workpathapi.egg-info/
 
 # ignore chaches
 workpathapi/__pycache__/
+tests/__pycache__/
+
+# ignore dist dir of pypi
+dist/
